@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayushi Giri — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --sage-dark:#5a6b52;
+  --sage-mid:#8a9e85;
+  --blush-light:#e8d5d0;
+  --blush-pink:#d4a8b0;
+  --blush-soft:#e8c4c8;
+  --blush-mauve:#b08890;
+  --cream:#f7f3f0;
+  --white:#fdfbf9;
+  --dark:#2c2420;
+  --text:#4a3f3a;
+  --muted:#9a8a85;
+}
+body{background:var(--cream);color:var(--text);font-family:'Jost',sans-serif;font-size:16px;line-height:1.7;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 2.5rem;display:flex;justify-content:space-between;align-items:center;background:rgba(247,243,240,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--blush-light)}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--sage-dark);letter-spacing:0.05em}
+.nav-links{display:flex;gap:2.5rem}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.78rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--sage-dark)}
+
+/* ── HERO ── */
+.hero-wrap{position:relative;min-height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#f0ebe6 0%,#e8ddd5 40%,#ddd0ca 70%,#cfc4be 100%);z-index:0}
+.hero-blob1{position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(180,154,162,0.35) 0%,transparent 70%);top:-80px;right:-60px;z-index:1;animation:floatBlob 8s ease-in-out infinite}
+.hero-blob2{position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(138,158,133,0.25) 0%,transparent 70%);bottom:40px;left:-80px;z-index:1;animation:floatBlob 10s ease-in-out infinite reverse}
+.hero-blob3{position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(212,168,176,0.4) 0%,transparent 70%);bottom:180px;right:200px;z-index:1;animation:floatBlob 6s ease-in-out infinite 2s}
+@keyframes floatBlob{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(20px,-25px) scale(1.05)}}
+
+.hero-marquee-wrap{position:absolute;bottom:0;left:0;right:0;overflow:hidden;z-index:2;border-top:1px solid rgba(176,136,144,0.25);padding:0.85rem 0;background:rgba(240,235,230,0.5);backdrop-filter:blur(4px)}
+.hero-marquee{display:flex;gap:0;white-space:nowrap;animation:marquee 18s linear infinite}
+.hero-marquee span{font-family:'Cormorant Garamond',serif;font-size:0.85rem;font-style:italic;color:var(--blush-mauve);letter-spacing:0.12em;padding:0 2.5rem}
+.hero-marquee span.sep{color:var(--sage-mid);font-style:normal}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.hero-inner{position:relative;z-index:3;max-width:1100px;margin:0 auto;padding:7rem 3rem 6rem;display:grid;grid-template-columns:1.1fr 0.9fr;align-items:center;gap:4rem}
+
+.hero-tag{display:inline-flex;align-items:center;gap:0.6rem;margin-bottom:1.75rem}
+.hero-tag-dot{width:7px;height:7px;border-radius:50%;background:var(--sage-mid);animation:pulse 2.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.8)}}
+.hero-tag-text{font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage-dark);font-weight:500}
+
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3.2rem,6vw,5.5rem);font-weight:300;line-height:1.0;color:var(--dark);margin-bottom:1.5rem}
+h1 .word-stack{display:block}
+h1 em{color:var(--sage-dark);font-style:italic;font-size:1.1em}
+h1 .underline-word{position:relative;display:inline-block}
+h1 .underline-word::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blush-pink),var(--blush-mauve));border-radius:2px}
+
+.hero-desc{font-size:1rem;color:var(--text);line-height:1.85;max-width:400px;margin-bottom:2.5rem;font-weight:300;opacity:0.85}
+.hero-desc strong{color:var(--sage-dark);font-weight:500}
+
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+.btn-primary{background:var(--sage-dark);color:var(--white);padding:0.9rem 2.25rem;border-radius:40px;text-decoration:none;font-size:0.8rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;transition:all 0.3s;box-shadow:0 4px 20px rgba(90,107,82,0.3)}
+.btn-primary:hover{background:var(--sage-mid);transform:translateY(-2px);box-shadow:0 8px 28px rgba(90,107,82,0.35)}
+.btn-ghost{border:1.5px solid var(--blush-mauve);color:var(--blush-mauve);padding:0.9rem 2.25rem;border-radius:40px;text-decoration:none;font-size:0.8rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;transition:all 0.3s}
+.btn-ghost:hover{background:var(--blush-light);transform:translateY(-2px)}
+.scroll-hint{display:flex;align-items:center;gap:0.5rem;margin-top:2.5rem;color:var(--muted);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase}
+.scroll-line{width:28px;height:1px;background:var(--muted)}
+
+.hero-right{display:flex;flex-direction:column;gap:1.25rem;align-items:flex-end}
+.hero-card-big{background:rgba(253,251,249,0.75);backdrop-filter:blur(12px);border:1px solid rgba(216,195,200,0.6);border-radius:20px;padding:2rem;width:100%;max-width:320px;box-shadow:0 8px 40px rgba(176,136,144,0.15);transition:transform 0.3s}
+.hero-card-big:hover{transform:translateY(-4px)}
+.card-eyebrow{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--sage-mid);margin-bottom:0.5rem}
+.card-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--dark);line-height:1.2;margin-bottom:0.35rem}
+.card-sub{font-size:0.8rem;color:var(--muted)}
+.card-divider{height:1px;background:linear-gradient(90deg,var(--blush-pink),transparent);margin:1rem 0}
+.card-chips{display:flex;flex-wrap:wrap;gap:0.4rem}
+.chip{background:rgba(138,158,133,0.15);border:1px solid rgba(138,158,133,0.3);color:var(--sage-dark);padding:0.25rem 0.65rem;border-radius:99px;font-size:0.7rem;letter-spacing:0.04em}
+
+.hero-card-sm{background:rgba(253,251,249,0.65);backdrop-filter:blur(10px);border:1px solid rgba(216,195,200,0.5);border-radius:14px;padding:1.1rem 1.4rem;width:100%;max-width:320px;display:flex;align-items:center;gap:1rem;box-shadow:0 4px 20px rgba(176,136,144,0.1);transition:transform 0.3s}
+.hero-card-sm:hover{transform:translateY(-3px)}
+.sm-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.sm-icon.sage{background:rgba(90,107,82,0.12)}
+.sm-icon.blush{background:rgba(176,136,144,0.15)}
+.sm-text .sm-label{font-size:0.68rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase}
+.sm-text .sm-val{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--dark)}
+
+section{padding:5rem 2.5rem;max-width:1000px;margin:0 auto}
+.section-tag{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--sage-mid);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.75rem}
+.section-tag::before{content:'';display:inline-block;width:20px;height:1px;background:var(--sage-mid)}
+h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--dark);margin-bottom:2.5rem}
+
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0.75rem}
+.skill-card{background:var(--white);border:1px solid var(--blush-light);border-radius:4px;padding:1.25rem;transition:border-color 0.2s}
+.skill-card:hover{border-color:var(--sage-mid)}
+.skill-dot{width:8px;height:8px;border-radius:50%;margin-bottom:0.75rem}
+.sd1{background:var(--sage-dark)} .sd2{background:var(--sage-mid)} .sd3{background:var(--blush-pink)} .sd4{background:var(--blush-mauve)} .sd5{background:var(--blush-soft)}
+.skill-title{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-dark);font-weight:500;margin-bottom:0.6rem}
+.skill-tags{display:flex;flex-wrap:wrap;gap:0.3rem}
+.tag{background:var(--cream);border:1px solid var(--blush-light);color:var(--muted);padding:0.2rem 0.5rem;border-radius:2px;font-size:0.7rem;letter-spacing:0.04em}
+
+.projects-grid{display:grid;gap:1px;background:var(--blush-light);border:1px solid var(--blush-light)}
+.project-card{background:var(--white);padding:2rem;transition:background 0.2s}
+.project-card:hover{background:var(--cream)}
+.proj-num{font-family:'Cormorant Garamond',serif;font-size:0.85rem;color:var(--blush-mauve);margin-bottom:0.75rem}
+.proj-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;color:var(--dark);margin-bottom:0.75rem}
+.proj-stack{display:flex;flex-wrap:wrap;gap:0.3rem;margin-bottom:1rem}
+.proj-desc{font-size:0.85rem;color:var(--muted);line-height:1.7;margin-bottom:1rem;font-weight:300}
+.proj-highlights{list-style:none;display:flex;flex-direction:column;gap:0.35rem}
+.proj-highlights li{font-size:0.82rem;color:var(--muted);padding-left:1.1rem;position:relative;font-weight:300}
+.proj-highlights li::before{content:'·';position:absolute;left:0;color:var(--sage-mid);font-size:1rem;line-height:1.3}
+
+.exp-section{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.exp-card{background:var(--white);border:1px solid var(--blush-light);border-radius:4px;padding:1.75rem}
+.exp-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;gap:1rem}
+.exp-role{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;color:var(--dark)}
+.exp-company{font-size:0.8rem;color:var(--sage-mid);margin-top:0.25rem;letter-spacing:0.04em}
+.exp-date{font-size:0.72rem;color:var(--muted);text-align:right;letter-spacing:0.04em;flex-shrink:0}
+.exp-list{list-style:none}
+.exp-list li{font-size:0.82rem;color:var(--muted);padding:0.3rem 0 0.3rem 1rem;border-left:1px solid var(--blush-light);margin-left:0.25rem;font-weight:300}
+
+.cert-row{display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:1.5rem}
+.cert-pill{background:var(--white);border:1px solid var(--blush-light);color:var(--muted);padding:0.5rem 1.1rem;border-radius:20px;font-size:0.78rem;letter-spacing:0.03em;display:flex;align-items:center;gap:0.5rem}
+.cert-pip{width:5px;height:5px;background:var(--sage-mid);border-radius:50%;flex-shrink:0}
+
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.75rem;margin-top:2rem}
+.contact-item{background:var(--white);border:1px solid var(--blush-light);border-radius:4px;padding:1.25rem;text-decoration:none;color:var(--text);transition:border-color 0.2s;display:flex;flex-direction:column;gap:0.3rem}
+.contact-item:hover{border-color:var(--sage-mid)}
+.c-label{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage-mid)}
+.c-value{font-size:0.88rem;color:var(--dark);font-weight:400}
+
+.full-divider{height:1px;background:var(--blush-light);max-width:1000px;margin:0 auto}
+footer{text-align:center;padding:2.5rem;color:var(--muted);font-size:0.75rem;letter-spacing:0.08em}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Ayushi Giri</div>
+  <div class="nav-links">
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="hero-wrap">
+  <div class="hero-bg"></div>
+  <div class="hero-blob1"></div>
+  <div class="hero-blob2"></div>
+  <div class="hero-blob3"></div>
+
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        <span class="hero-tag-text">Available 2026 · Open to Opportunities</span>
+      </div>
+      <h1>
+        <span class="word-stack">Building</span>
+        <span class="word-stack"><em>intelligent</em></span>
+        <span class="word-stack"><span class="underline-word">systems</span> &amp; APIs</span>
+      </h1>
+      <p class="hero-desc">
+        Final-year CS student at KIIT · Passionate about <strong>AI, LLMs &amp; backend engineering</strong>. I turn complex ideas into clean, scalable software that actually ships.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="#contact" class="btn-ghost">Contact Me</a>
+      </div>
+      <div class="scroll-hint">
+        <span class="scroll-line"></span>
+        <span>Scroll to explore</span>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-card-big">
+        <div class="card-eyebrow">Industry Experience</div>
+        <div class="card-title">Wipro Technologies</div>
+        <div class="card-sub">Summer Trainee · Bangalore, 2024</div>
+        <div class="card-divider"></div>
+        <div class="card-chips">
+          <span class="chip">Python</span>
+          <span class="chip">SQL</span>
+          <span class="chip">Data Pipelines</span>
+          <span class="chip">Automation</span>
+        </div>
+      </div>
+      <div class="hero-card-sm">
+        <div class="sm-icon sage">🤖</div>
+        <div class="sm-text">
+          <div class="sm-label">Specialisation</div>
+          <div class="sm-val">AI / ML · LLMs · RAG</div>
+        </div>
+      </div>
+      <div class="hero-card-sm">
+        <div class="sm-icon blush">🎓</div>
+        <div class="sm-text">
+          <div class="sm-label">Education</div>
+          <div class="sm-val">B.Tech CS · KIIT, 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-marquee-wrap">
+    <div class="hero-marquee">
+      <span>Python</span><span class="sep">✦</span>
+      <span>LLMs</span><span class="sep">✦</span>
+      <span>RAG Pipelines</span><span class="sep">✦</span>
+      <span>FastAPI</span><span class="sep">✦</span>
+      <span>Vector Databases</span><span class="sep">✦</span>
+      <span>Deep Learning</span><span class="sep">✦</span>
+      <span>Backend Engineering</span><span class="sep">✦</span>
+      <span>Computer Vision</span><span class="sep">✦</span>
+      <span>NLP</span><span class="sep">✦</span>
+      <span>REST APIs</span><span class="sep">✦</span>
+      <span>Python</span><span class="sep">✦</span>
+      <span>LLMs</span><span class="sep">✦</span>
+      <span>RAG Pipelines</span><span class="sep">✦</span>
+      <span>FastAPI</span><span class="sep">✦</span>
+      <span>Vector Databases</span><span class="sep">✦</span>
+      <span>Deep Learning</span><span class="sep">✦</span>
+      <span>Backend Engineering</span><span class="sep">✦</span>
+      <span>Computer Vision</span><span class="sep">✦</span>
+      <span>NLP</span><span class="sep">✦</span>
+      <span>REST APIs</span><span class="sep">✦</span>
+    </div>
+  </div>
+</div>
+
+<div class="full-divider"></div>
+
+<section id="skills">
+  <div class="section-tag">What I know</div>
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-dot sd1"></div>
+      <div class="skill-title">Programming</div>
+      <div class="skill-tags"><span class="tag">Python</span><span class="tag">Java</span><span class="tag">SQL</span><span class="tag">C++</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-dot sd2"></div>
+      <div class="skill-title">AI / ML</div>
+      <div class="skill-tags"><span class="tag">LLMs</span><span class="tag">RAG</span><span class="tag">NLP</span><span class="tag">Deep Learning</span><span class="tag">CV</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-dot sd3"></div>
+      <div class="skill-title">Frameworks</div>
+      <div class="skill-tags"><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Docker</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-dot sd4"></div>
+      <div class="skill-title">Databases</div>
+      <div class="skill-tags"><span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">Vector DBs</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-dot sd5"></div>
+      <div class="skill-title">Concepts</div>
+      <div class="skill-tags"><span class="tag">REST APIs</span><span class="tag">OOP</span><span class="tag">DSA</span><span class="tag">System Design</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<section id="projects">
+  <div class="section-tag">What I've built</div>
+  <h2>Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="proj-num">01</div>
+      <div class="proj-name"><a href="https://github.com/Ayushix17/ai-developer-review" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--blush-pink)">AI-Powered Developer Productivity Tool</a></div>
+      <div class="proj-stack"><span class="tag">Python</span><span class="tag">LLMs</span><span class="tag">Vector DBs</span><span class="tag">GitHub APIs</span><span class="tag">REST APIs</span></div>
+      <p class="proj-desc">An AI developer assistant for code review, debugging, and SQL query optimization using LLM-driven workflows with retrieval-augmented pipelines.</p>
+      <ul class="proj-highlights">
+        <li>Scalable backend APIs with context-aware reasoning via RAG</li>
+        <li>GitHub API + vector DB integration for improved response relevance</li>
+        <li>Low-latency performance through logging and request optimization</li>
+      </ul>
+    </div>
+    <div class="project-card">
+      <div class="proj-num">02</div>
+      <div class="proj-name"><a href="https://github.com/Ayushix17/AI-Network-Health-Analyzer" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--blush-pink)">AI Network Health Analyzer</a></div>
+      <div class="proj-stack"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Cloud APIs</span></div>
+      <p class="proj-desc">Backend services for monitoring system and network metrics, enabling automated anomaly detection and infrastructure health analysis.</p>
+      <ul class="proj-highlights">
+        <li>APIs to serve infrastructure insights for dashboard visualization</li>
+        <li>Cloud-based pipelines for scalable monitoring and analytics</li>
+        <li>Optimized data validation for reliability and debugging efficiency</li>
+      </ul>
+    </div>
+    <div class="project-card">
+      <div class="proj-num">03</div>
+      <div class="proj-name"><a href="https://github.com/Ayushix17/End-to-End-Image-Classification-System" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--blush-pink)">Image Classification System (LightGBM + HOG)</a></div>
+      <div class="proj-stack"><span class="tag">Python</span><span class="tag">LightGBM</span><span class="tag">OpenCV</span><span class="tag">PCA</span></div>
+      <p class="proj-desc">End-to-end image classification pipeline using HOG feature extraction, PCA-based dimensionality reduction, and LightGBM models.</p>
+      <ul class="proj-highlights">
+        <li>HOG + PCA preprocessing for optimized inference speed</li>
+        <li>Hyperparameter tuning for improved accuracy and robustness</li>
+        <li>Structured downstream workflows for scalable ML analysis</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<section id="experience">
+  <div class="section-tag">Where I've been</div>
+  <h2>Experience & Education</h2>
+  <div class="exp-section">
+    <div class="exp-card">
+      <div class="exp-top">
+        <div>
+          <div class="exp-role">Summer Trainee</div>
+          <div class="exp-company">Wipro Technologies · Bangalore</div>
+        </div>
+        <div class="exp-date">Jun – Jul 2024</div>
+      </div>
+      <ul class="exp-list">
+        <li>Backend automation scripts in Python & SQL for preprocessing</li>
+        <li>Validation pipelines for missing data and dataset cleaning</li>
+        <li>Debugging and optimization of backend workflows</li>
+        <li>Converted reporting requirements into technical implementations</li>
+      </ul>
+    </div>
+    <div class="exp-card">
+      <div class="exp-top">
+        <div>
+          <div class="exp-role">B.Tech — Computer Science</div>
+          <div class="exp-company">KIIT University · Bhubaneswar</div>
+        </div>
+        <div class="exp-date">2022 – 2026</div>
+      </div>
+      <ul class="exp-list" style="margin-bottom:1rem">
+        <li>Senior Executive, FED KIIT — led cross-functional student teams</li>
+      </ul>
+      <div class="cert-row">
+        <div class="cert-pill"><span class="cert-pip"></span>Deep Learning — Coursera</div>
+        <div class="cert-pill"><span class="cert-pip"></span>Data Analysis — Coursera</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<section id="contact">
+  <div class="section-tag">Let's connect</div>
+  <h2>Get in Touch</h2>
+  <p style="color:var(--muted);font-size:0.9rem;font-weight:300;max-width:420px">Looking for backend, AI/ML, or full-stack roles from 2026. Open to internships, collaborations, and conversations.</p>
+  <div class="contact-grid">
+    <a href="mailto:ayushigrr@gmail.com" class="contact-item">
+      <div class="c-label">Email</div>
+      <div class="c-value">ayushigrr@gmail.com</div>
+    </a>
+    <a href="https://www.linkedin.com/in/ayushi-giri-251137268/" target="_blank" class="contact-item">
+      <div class="c-label">LinkedIn</div>
+      <div class="c-value">Ayushi Giri</div>
+    </a>
+    <a href="https://github.com/Ayushix17" target="_blank" class="contact-item">
+      <div class="c-label">GitHub</div>
+      <div class="c-value">@Ayushix17</div>
+    </a>
+    <div class="contact-item">
+      <div class="c-label">Location</div>
+      <div class="c-value">Bengaluru, India</div>
+    </div>
+  </div>
+</section>
+
+<footer>Ayushi Giri © 2026 &nbsp;·&nbsp; Bengaluru, India</footer>
+
+</body>
+</html>
